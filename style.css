@@ -1,0 +1,394 @@
+/* =========================================
+   1. RESETEO Y CONFIGURACIÓN BASE
+   ========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #F9F7F2; /* Crema minimalista */
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    color: #1a1a1a;
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+
+    /* SEGURIDAD GLOBAL: Bloquea la selección en todo el sitio */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    /* Evita el parpadeo azul al tocar en móviles */
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* =========================================
+   2. ENCABEZADO (HEADER)
+   ========================================= */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 60px 8%;
+    background-color: #F9F7F2;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+/* LOGO: Times New Roman, elegante */
+.logo {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 34px;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #1a1a1a;
+    margin-left: 25px;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: opacity 0.3s ease;
+}
+
+nav a:hover {
+    opacity: 0.5;
+}
+
+nav a.active {
+    border-bottom: 1px solid #1a1a1a;
+    padding-bottom: 2px;
+    opacity: 1;
+}
+
+/* =========================================
+   3. GALERÍA PRINCIPAL (OBRAS)
+   ========================================= */
+main {
+    flex: 1;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    padding: 20px 8% 100px 8%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* CLASE PARA OBRAS GRANDES (Margarita) */
+@media (min-width: 769px) {
+    .item-large {
+        grid-column: span 2;
+    }
+}
+
+.item {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    width: 100%;
+}
+
+/* Escudo protector invisible */
+.item::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+    background: transparent;
+}
+
+.item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: opacity 0.4s ease, filter 0.4s ease;
+    pointer-events: none; /* Evita arrastrar la imagen */
+    -webkit-touch-callout: none;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    padding: 20px;
+    z-index: 10;
+    background-color: rgba(249, 247, 242, 0.85);
+}
+
+.overlay span {
+    text-align: center;
+    font-size: 18px;
+    color: #1a1a1a;
+}
+
+/* --- INTERACCIÓN (Mouse y Toque en Móvil) --- */
+/* Se activa si pasas el mouse (:hover) O si tiene la clase .active (toque) */
+
+.item:hover img,
+.item.active img {
+    opacity: 0.2;
+}
+
+.item:hover .overlay,
+.item.active .overlay {
+    opacity: 1;
+}
+
+/* =========================================
+   4. SECCIÓN POESÍA
+   ========================================= */
+.poetry-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    padding: 40px 8% 100px 8%;
+    max-width: 1400px;
+    margin: 0 auto;
+    align-items: start;
+}
+
+.poem-card {
+    background-color: transparent;
+    padding: 10px;
+}
+
+.poem-header {
+    margin-bottom: 25px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 15px;
+}
+
+.poem-title {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 5px;
+    color: #000;
+}
+
+.poem-meta {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 11px;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.poem-content {
+    font-family: 'Georgia', serif;
+    font-size: 16px;
+    line-height: 1.7;
+    color: #333;
+    text-align: left;
+}
+
+/* =========================================
+   5. SECCIÓN CV
+   ========================================= */
+.cv-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 8% 100px 8%;
+}
+
+.cv-header {
+    margin-bottom: 40px;
+}
+
+.cv-header h1 {
+    font-size: 36px;
+    letter-spacing: -1px;
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+.cv-subtitle {
+    font-size: 16px;
+    color: #666;
+    line-height: 1.5;
+}
+
+.cv-divider {
+    border: 0;
+    border-top: 1px solid #ddd;
+    margin-bottom: 50px;
+}
+
+.cv-section {
+    margin-bottom: 60px;
+}
+
+.cv-category {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #999;
+    margin-bottom: 25px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+.cv-row {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.cv-year {
+    width: 110px;
+    font-weight: bold;
+    font-size: 14px;
+    color: #1a1a1a;
+    flex-shrink: 0;
+}
+
+.cv-content {
+    font-size: 15px;
+    color: #333;
+    line-height: 1.6;
+}
+
+.cv-content strong {
+    color: #000;
+    font-weight: 500;
+    font-size: 18px;
+    display: block;
+    margin-bottom: 4px;
+}
+
+/* =========================================
+   6. SECCIÓN CONTACTO
+   ========================================= */
+.contact-page {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.contact-main {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+}
+
+.contact-wrapper {
+    text-align: center;
+}
+
+.email-section {
+    margin-bottom: 60px;
+}
+
+.email-section .intro-text {
+    margin-bottom: 20px;
+    font-size: 14px;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* TEXTO SELECCIONABLE PARA CORREOS */
+.contact-email-text {
+    display: block;
+    font-size: clamp(20px, 4vw, 32px);
+    color: #1a1a1a;
+    letter-spacing: -0.5px;
+    margin-bottom: 15px;
+    cursor: text;
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
+}
+
+/* Instagram */
+.social-section {
+    margin-top: 40px;
+    padding-top: 40px;
+    border-top: 1px solid #ddd;
+    width: 100%;
+    max-width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.social-icon {
+    width: 20px; /* Tamaño minimalista */
+    height: auto;
+    opacity: 0.8;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    margin-bottom: 10px;
+}
+
+.social-icon:hover {
+    transform: scale(1.1);
+    opacity: 1;
+}
+
+.social-label {
+    font-size: 12px;
+    color: #666;
+    letter-spacing: 1px;
+}
+
+/* =========================================
+   7. PIE DE PÁGINA (FOOTER)
+   ========================================= */
+footer {
+    padding: 60px 0;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+/* FIRMA */
+.signature-icon {
+    width: 80px;
+    height: auto;
+    opacity: 0.6;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    cursor: pointer;
+}
+
+.signature-icon:hover {
+    transform: scale(1.1);
+    opacity: 1;
+}
+
+/* =========================================
+   8. RESPONSIVIDAD (MÓVILES)
+   ========================================= */
+@media (max-width: 768px) {
+    header { flex-direction: column; gap: 25px; padding: 40px 5%; }
+    nav a { margin: 0 10px; }
+
+    .gallery, .poetry-grid { grid-template-columns: 1fr; gap: 40px; }
+
+    .cv-row { flex-direction: column; margin-bottom: 30px; }
+    .cv-year { margin-bottom: 5px; opacity: 0.6; }
+}

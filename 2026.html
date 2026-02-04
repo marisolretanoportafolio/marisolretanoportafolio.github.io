@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marisol Retano | 2026</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <div class="logo"><a href="index.html" style="text-decoration:none; color:inherit;">Marisol Retano</a></div>
+    <nav>
+        <a href="2026.html" class="active">2026</a>
+        <a href="index.html">2025</a>
+        <a href="2024.html">2024</a>
+        <a href="poesia.html">Poesia +</a>
+        <a href="cv.html">CV</a>
+        <a href="contacto.html">Contacto</a>
+    </nav>
+</header>
+
+<main>
+    <section class="gallery">
+
+        <div class="item item-small">
+            <img src="imagenes/obra202.jpg" alt="Recuerdos de una tarde en silencio n.2">
+            <div class="overlay">
+                <span>
+                    Recuerdos de una tarde en silencio n.2<br>
+                    Óleo sobre imprimación en minagris<br>
+                    11 x 18.5 cm<br>
+                    2026
+                </span>
+            </div>
+        </div>
+
+        <div class="item item-small">
+            <img src="imagenes/obra201.jpg" alt="Recuerdos de una tarde en silencio n.1">
+            <div class="overlay">
+                <span>
+                    Recuerdos de una tarde en silencio n.1<br>
+                    Óleo sobre imprimación en minagris<br>
+                    11 x 18.5 cm<br>
+                    2026
+                </span>
+            </div>
+        </div>
+
+        <div class="item item-small">
+            <img src="imagenes/obra203.jpg" alt="09|01|26">
+            <div class="overlay">
+                <span>
+                    09|01|26<br>
+                    Óleo sobre cartón con tela<br>
+                    12 x 15 cm<br>
+                    2026
+                </span>
+            </div>
+        </div>
+
+    </section>
+</main>
+
+<footer>
+    <div class="signature-container">
+        <img src="imagenes/firma.jpg" alt="Firma Retano" class="signature-icon">
+    </div>
+</footer>
+
+<script>
+    document.addEventListener('contextmenu', e => e.preventDefault());
+    document.addEventListener('dragstart', e => { if (e.target.nodeName === 'IMG') e.preventDefault(); });
+
+    const items = document.querySelectorAll('.item');
+    items.forEach(item => {
+        item.addEventListener('click', function(e) {
+            if (this.classList.contains('active')) {
+                this.classList.remove('active');
+            } else {
+                items.forEach(i => i.classList.remove('active'));
+                this.classList.add('active');
+            }
+        });
+    });
+</script>
+
+</body>
+</html>

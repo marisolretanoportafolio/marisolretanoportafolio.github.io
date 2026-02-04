@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marisol Retano | 2025</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <div class="logo"><a href="index.html" style="text-decoration:none; color:inherit;">Marisol Retano</a></div>
+    <nav>
+        <a href="2026.html">2026</a>
+        <a href="index.html" class="active">2025</a>
+        <a href="2024.html">2024</a>
+        <a href="poesia.html">Poesia +</a>
+        <a href="cv.html">CV</a>
+        <a href="contacto.html">Contacto</a>
+    </nav>
+</header>
+
+<main>
+    <section class="gallery">
+
+        <div class="item">
+            <img src="imagenes/obra1.jpg" alt="Exploraciones del azul No.1 Cobalto">
+            <div class="overlay">
+                <span>
+                    Exploraciones del azul<br>
+                    No.1 Cobalto<br>
+                    Óleo<br>
+                    15.5 x 22.7 cm<br>
+                    2025
+                </span>
+            </div>
+        </div>
+
+        <div class="item">
+            <img src="imagenes/obra2.jpg" alt="Atardecer No.8">
+            <div class="overlay">
+                <span>
+                    Atardecer No.8<br>
+                    Óleo<br>
+                    16 x 22.4 cm<br>
+                    2025
+                </span>
+            </div>
+        </div>
+
+        <div class="item">
+            <img src="imagenes/obra3.jpg" alt="Ecos, no.1">
+            <div class="overlay">
+                <span>
+                    Ecos, no.1<br>
+                    Óleo<br>
+                    14 x 22.3 cm<br>
+                    2025
+                </span>
+            </div>
+        </div>
+
+        <div class="item">
+            <img src="imagenes/obra4.jpg" alt="Exploraciones del azul No.3 Ultramar">
+            <div class="overlay">
+                <span>
+                    Exploraciones del azul<br>
+                    No.3 Ultramar<br>
+                    Óleo<br>
+                    16 x 22.2 cm<br>
+                    2025
+                </span>
+            </div>
+        </div>
+
+        <div class="item">
+            <img src="imagenes/obra5.jpg" alt="Exploraciones del azul No.2 Prusia">
+            <div class="overlay">
+                <span>
+                    Exploraciones del azul<br>
+                    No.2 Prusia<br>
+                    Óleo<br>
+                    15 x 23.3 cm<br>
+                    2025
+                </span>
+            </div>
+        </div>
+
+        <div class="item">
+            <img src="imagenes/obra6.jpg" alt="Rencuentros: Ecos y tus ojos / Oscuros No.4">
+            <div class="overlay">
+                <span>
+                    Rencuentros:<br>
+                    Ecos y tus ojos / Oscuros No.4<br>
+                    Óleo<br>
+                    16.5 x 22.8 cm<br>
+                    2025
+                </span>
+            </div>
+        </div>
+
+        <div class="item">
+            <img src="imagenes/obra7.jpg" alt="Rencuentros: Ecos y tus ojos / Oscuros no.2">
+            <div class="overlay">
+                <span>
+                    Rencuentros:<br>
+                    Ecos y tus ojos / Oscuros no.2<br>
+                    Óleo<br>
+                    14.8 x 21 cm<br>
+                    2025
+                </span>
+            </div>
+        </div>
+
+        <div class="item">
+            <img src="imagenes/obra8.jpg" alt="Llanura no.1">
+            <div class="overlay">
+                <span>
+                    Llanura no.1<br>
+                    Óleo<br>
+                    17 x 25 cm<br>
+                    2025
+                </span>
+            </div>
+        </div>
+
+    </section>
+</main>
+
+<footer>
+    <div class="signature-container">
+        <img src="imagenes/firma.jpg" alt="Firma Retano" class="signature-icon">
+    </div>
+</footer>
+
+<script>
+    /* 1. SEGURIDAD (Bloqueo de click derecho y arrastre) */
+    document.addEventListener('contextmenu', e => e.preventDefault());
+    document.addEventListener('dragstart', e => { if (e.target.nodeName === 'IMG') e.preventDefault(); });
+
+    /* 2. LÓGICA PARA CELULARES (Toque para ver ficha) */
+    const items = document.querySelectorAll('.item');
+
+    items.forEach(item => {
+        item.addEventListener('click', function(e) {
+            // Si la obra que tocaste ya estaba abierta, la cerramos (toggle)
+            if (this.classList.contains('active')) {
+                this.classList.remove('active');
+            } else {
+                // Si estaba cerrada: Primero cerramos TODAS las demás
+                items.forEach(i => i.classList.remove('active'));
+                // Y abrimos (activamos) solo la que tocaste
+                this.classList.add('active');
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
