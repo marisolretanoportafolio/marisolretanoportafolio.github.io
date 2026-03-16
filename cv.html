@@ -5,8 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Marisol Retano | CV</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* 1. Encabezado principal compacto */
+        .cv-header h1 {
+            margin-bottom: 0px;
+            padding-bottom: 0px;
+        }
+        .cv-subtitle {
+            margin-top: 0px;
+            line-height: 1.2;
+        }
+
+        /* 2. Items del CV: Información interna pegada */
+        .cv-content {
+            line-height: 1.1;
+        }
+        .cv-content strong {
+            display: block;
+            margin-bottom: 2px; /* Espacio mínimo bajo el título del evento */
+        }
+
+        /* 3. ESPACIO ENTRE AÑOS: Aquí es donde separamos cada bloque */
+        .cv-row {
+            margin-bottom: 28px; /* Aumentamos este valor para separar los años */
+            display: flex;
+        }
+    </style>
 </head>
-<body>
+<body class="cv-page">
 
 <header>
     <div class="logo"><a href="index.html" style="text-decoration:none; color:inherit;">Marisol Retano</a></div>
@@ -32,169 +58,8 @@
 
     <hr class="cv-divider">
 
-    <section class="cv-section">
-        <h3 class="cv-category">Formación Académica</h3>
-
-        <div class="cv-row">
-            <div class="cv-year">2016–2018</div>
-            <div class="cv-content">
-                <strong>Bachillerato en Educación Artística</strong>
-                CEDART “José Eduardo Pierson”.<br>
-                Especialidad: Danza.
-            </div>
-        </div>
-
-        <div class="cv-row">
-            <div class="cv-year">En curso</div>
-            <div class="cv-content">
-                <strong>Licenciatura en Artes Plásticas</strong>
-                Universidad de Sonora (Noveno semestre).<br>
-                Especialidad: Pintura.
-            </div>
-        </div>
-    </section>
-
-    <section class="cv-section">
-        <h3 class="cv-category">Cursos y Diplomados</h3>
-
-        <div class="cv-row">
-            <div class="cv-year">2024</div>
-            <div class="cv-content">
-                <strong>Curso-Taller de Curaduría: hambre</strong>
-                Impartido por el M.A.V Gracia Doré Luévano Rodríguez, Hermosillo, Sonora.
-            </div>
-        </div>
-
-        <div class="cv-row">
-            <div class="cv-year">2025</div>
-            <div class="cv-content">
-                <strong>Taller Campo de Juego LUAN</strong>
-                Hermosillo, Sonora.
-            </div>
-        </div>
-
-        <div class="cv-row">
-            <div class="cv-year">2025</div>
-            <div class="cv-content">
-                <strong>Curso Gestión de Proyectos Culturales</strong>
-                Escuela Complutense de Madrid, España (Julio).
-            </div>
-        </div>
-    </section>
-
-    <section class="cv-section">
-        <h3 class="cv-category">Participación como Artista Plástica</h3>
-
-        <div class="cv-row">
-            <div class="cv-year">2019</div>
-            <div class="cv-content">
-                <strong>Locura, Somos Náufragos</strong>
-                Casa de la Cultura de Puerto Peñasco, Sonora.
-            </div>
-        </div>
-
-        <div class="cv-row">
-            <div class="cv-year">2019</div>
-            <div class="cv-content">
-                <strong>Exposición colectiva</strong>
-                Galería de Artesanos, Hermosillo, Sonora.
-            </div>
-        </div>
-
-        <div class="cv-row">
-            <div class="cv-year">2025</div>
-            <div class="cv-content">
-                <strong>Bolita por favor</strong>
-                Exposición colectiva, El Mentidero, Hermosillo, Sonora.
-            </div>
-        </div>
-
-        <div class="cv-row">
-            <div class="cv-year">2025</div>
-            <div class="cv-content">
-                <strong>Resonancia de lo Interno</strong>
-                Exposición colectiva, MUSAS, Hermosillo, Sonora.
-            </div>
-        </div>
-    </section>
-
-    <section class="cv-section">
-        <h3 class="cv-category">Investigación y Análisis Artístico</h3>
-
-        <div class="cv-row">
-            <div class="cv-year">2025</div>
-            <div class="cv-content">
-                <strong>Participación con análisis iconográficos</strong>
-                Para la exposición 'Una llama silenciosa' del artista Benjamín Coria, presentada en el Museo de Arte de Sonora (MUSAS).
-            </div>
-        </div>
-    </section>
-
-    <section class="cv-section">
-        <h3 class="cv-category">Participaciones Literarias</h3>
-
-        <div class="cv-row">
-            <div class="cv-year">2018</div>
-            <div class="cv-content">
-                <strong>Festival del Pitic</strong>
-                Presentación de poesía.
-            </div>
-        </div>
-
-        <div class="cv-row">
-            <div class="cv-year">2019</div>
-            <div class="cv-content">
-                <strong>Festival del Pitic</strong>
-                Presentación de poesía.
-            </div>
-        </div>
-
-        <div class="cv-row">
-            <div class="cv-year">2019</div>
-            <div class="cv-content">
-                <strong>Feria del Libro de Hermosillo</strong>
-                Presentación de poesía.
-            </div>
-        </div>
-
-        <div class="cv-row">
-            <div class="cv-year">2020</div>
-            <div class="cv-content">
-                <strong>Jornadas Binacionales de Literatura Abigael Bohórquez</strong>
-            </div>
-        </div>
-    </section>
-
-    <section class="cv-section">
-        <h3 class="cv-category">Publicaciones</h3>
-
-        <div class="cv-row">
-            <div class="cv-year">2019</div>
-            <div class="cv-content">
-                <strong>Slamtología de Jóvenes Poetas Sonorenses</strong>
-                Antología poética.
-            </div>
-        </div>
-
-        <div class="cv-row">
-            <div class="cv-year">2020</div>
-            <div class="cv-content">
-                <strong>Me sangran los dedos</strong>
-                Plaquette.
-            </div>
-        </div>
-    </section>
-
-    <section class="cv-section">
-        <h3 class="cv-category">Idiomas</h3>
-        <div class="cv-row">
-            <div class="cv-year"></div>
-            <div class="cv-content">
-                Español (Nativo)<br>
-                Inglés
-            </div>
-        </div>
-    </section>
+    <div id="contenedor-cv">
+    </div>
 
 </main>
 
@@ -205,8 +70,83 @@
 </footer>
 
 <script>
+
+    /* 🟢 CV 🟢 */
+
+    const datosCV = [
+        {
+            categoria: "Formación Académica",
+            items: [
+                { anio: "2016–2018", descripcion: "<strong>Bachillerato en Educación Artística</strong>CEDART “José Eduardo Pierson”. Especialidad: Danza." },
+                { anio: "En curso", descripcion: "<strong>Licenciatura en Artes Plásticas</strong>Universidad de Sonora (Noveno semestre). Especialidad: Pintura." }
+            ]
+        },
+        {
+            categoria: "Cursos y Diplomados",
+            items: [
+                { anio: "2024", descripcion: "<strong>Curso-Taller de Curaduría: hambre</strong>Impartido por el M.A.V Gracia Doré Luévano Rodríguez, Hermosillo, Sonora." },
+                { anio: "2025", descripcion: "<strong>Taller Campo de Juego LUAN</strong>Hermosillo, Sonora." },
+                { anio: "2025", descripcion: "<strong>Curso Gestión de Proyectos Culturales</strong>Escuela Complutense de Madrid, España (Julio)." }
+            ]
+        },
+        {
+            categoria: "Participación como Artista Plástica",
+            items: [
+                { anio: "2019", descripcion: "<strong>Locura, Somos Náufragos</strong>Casa de la Cultura de Puerto Peñasco, Sonora." },
+                { anio: "2019", descripcion: "<strong>Exposición colectiva</strong>Galería de Artesanos, Hermosillo, Sonora." },
+                { anio: "2025", descripcion: "<strong>Bolita por favor</strong>Exposición colectiva, El Mentidero, Hermosillo, Sonora." },
+                { anio: "2025", descripcion: "<strong>Resonancia de lo Interno</strong>Exposición colectiva, MUSAS, Hermosillo, Sonora." }
+            ]
+        },
+        {
+            categoria: "Investigación y Análisis Artístico",
+            items: [
+                { anio: "2025", descripcion: "<strong>Participación con análisis iconográficos</strong>Para la exposición 'Una llama silenciosa' del artista Benjamín Coria, presentada en el Museo de Arte de Sonora (MUSAS)." }
+            ]
+        },
+        {
+            categoria: "Participaciones Literarias",
+            items: [
+                { anio: "2018", descripcion: "<strong>Festival del Pitic</strong>Presentación de poesía." },
+                { anio: "2019", descripcion: "<strong>Festival del Pitic</strong>Presentación de poesía." },
+                { anio: "2019", descripcion: "<strong>Feria del Libro de Hermosillo</strong>Presentación de poesía." },
+                { anio: "2020", descripcion: "<strong>Jornadas Binacionales de Literatura Abigael Bohórquez</strong>" }
+            ]
+        },
+        {
+            categoria: "Publicaciones",
+            items: [
+                { anio: "2019", descripcion: "<strong>Slamtología de Jóvenes Poetas Sonorenses</strong>Antología poética." },
+                { anio: "2020", descripcion: "<strong>Me sangran los dedos</strong>Plaquette." }
+            ]
+        },
+        {
+            categoria: "Idiomas",
+            items: [
+                { anio: "", descripcion: "Español (Nativo)<br>Inglés" }
+            ]
+        }
+    ];
+
+    /* 🛑 MOTOR 🛑*/
+
+    const contenedor = document.getElementById('contenedor-cv');
+    datosCV.forEach(seccion => {
+        const bloqueSeccion = document.createElement('section');
+        bloqueSeccion.className = "cv-section";
+        let htmlInterno = `<h3 class="cv-category">${seccion.categoria}</h3>`;
+        seccion.items.forEach(item => {
+            htmlInterno += `
+                <div class="cv-row">
+                    <div class="cv-year">${item.anio}</div>
+                    <div class="cv-content">${item.descripcion}</div>
+                </div>`;
+        });
+        bloqueSeccion.innerHTML = htmlInterno;
+        contenedor.appendChild(bloqueSeccion);
+    });
+
     document.addEventListener('contextmenu', e => e.preventDefault());
-    document.addEventListener('dragstart', e => { if (e.target.nodeName === 'IMG') e.preventDefault(); });
 </script>
 
 </body>

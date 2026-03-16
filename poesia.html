@@ -21,14 +21,26 @@
 </header>
 
 <main>
-    <div class="poetry-grid">
+    <div class="poetry-grid" id="contenedor-poesia">
+    </div>
+</main>
 
-        <article class="poem-card">
-            <div class="poem-header">
-                <h2 class="poem-title">Para escuchar tu voz</h2>
-                <div class="poem-meta">2025</div>
-            </div>
-            <div class="poem-content">
+<footer>
+    <div class="signature-container">
+        <img src="imagenes/firma.jpg" alt="Firma Retano" class="signature-icon">
+    </div>
+</footer>
+
+<script>
+
+    /*🟢 POEMAS 🟢*/
+
+    const poemas = [
+        {
+            titulo: "Para escuchar tu voz",
+            anio: "2025",
+            // Usamos las comillas invertidas (`) para poder dar "Enter" libremente en el texto
+            contenido: `
                 <p>
                     Ojalá me entendieras, para que supieras lo<br>
                     mucho que me importa.<br>
@@ -56,15 +68,12 @@
                     Para que entendieras y supieras.<br>
                     Para que me veas y te veas.
                 </p>
-            </div>
-        </article>
-
-        <article class="poem-card">
-            <div class="poem-header">
-                <h2 class="poem-title">Patria</h2>
-                <div class="poem-meta">2022</div>
-            </div>
-            <div class="poem-content">
+            `
+        },
+        {
+            titulo: "Patria",
+            anio: "2022",
+            contenido: `
                 <p>
                     Amor,<br>
                     este corazón,<br>
@@ -73,35 +82,43 @@
                     en la noche oscura<br>
                     de tu incendiaria boca.
                 </p>
-            </div>
-        </article>
-
-        <article class="poem-card">
-            <div class="poem-header">
-                <h2 class="poem-title">Teoría</h2>
-                <div class="poem-meta">2023</div>
-            </div>
-            <div class="poem-content">
+            `
+        },
+        {
+            titulo: "Teoría",
+            anio: "2023",
+            contenido: `
                 <p>
                     El amor<br>
                     es la piedad que nos tenemos.
                 </p>
+            `
+        }
+    ];
+
+    /*🛑 MOTOR 🛑*/
+
+    const contenedor = document.getElementById('contenedor-poesia');
+
+    poemas.forEach(poema => {
+        const tarjetaPoema = document.createElement('article');
+        tarjetaPoema.className = "poem-card";
+
+        tarjetaPoema.innerHTML = `
+            <div class="poem-header">
+                <h2 class="poem-title">${poema.titulo}</h2>
+                <div class="poem-meta">${poema.anio}</div>
             </div>
-        </article>
+            <div class="poem-content">
+                ${poema.contenido}
+            </div>
+        `;
 
-    </div>
-</main>
+        contenedor.appendChild(tarjetaPoema);
+    });
 
-<footer>
-    <div class="signature-container">
-        <img src="imagenes/firma.jpg" alt="Firma Retano" class="signature-icon">
-    </div>
-</footer>
-
-<script>
     document.addEventListener('contextmenu', e => e.preventDefault());
     document.addEventListener('dragstart', e => { if (e.target.nodeName === 'IMG') e.preventDefault(); });
-    // En poesía no hay galería interactiva, pero dejamos el script por seguridad base.
 </script>
 
 </body>

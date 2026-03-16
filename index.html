@@ -21,109 +21,7 @@
 </header>
 
 <main>
-    <section class="gallery">
-
-        <div class="item">
-            <img src="imagenes/obra1.jpg" alt="Exploraciones del azul No.1 Cobalto">
-            <div class="overlay">
-                <span>
-                    Exploraciones del azul<br>
-                    No.1 Cobalto<br>
-                    Óleo<br>
-                    15.5 x 22.7 cm<br>
-                    2025
-                </span>
-            </div>
-        </div>
-
-        <div class="item">
-            <img src="imagenes/obra2.jpg" alt="Atardecer No.8">
-            <div class="overlay">
-                <span>
-                    Atardecer No.8<br>
-                    Óleo<br>
-                    16 x 22.4 cm<br>
-                    2025
-                </span>
-            </div>
-        </div>
-
-        <div class="item">
-            <img src="imagenes/obra3.jpg" alt="Ecos, no.1">
-            <div class="overlay">
-                <span>
-                    Ecos, no.1<br>
-                    Óleo<br>
-                    14 x 22.3 cm<br>
-                    2025
-                </span>
-            </div>
-        </div>
-
-        <div class="item">
-            <img src="imagenes/obra4.jpg" alt="Exploraciones del azul No.3 Ultramar">
-            <div class="overlay">
-                <span>
-                    Exploraciones del azul<br>
-                    No.3 Ultramar<br>
-                    Óleo<br>
-                    16 x 22.2 cm<br>
-                    2025
-                </span>
-            </div>
-        </div>
-
-        <div class="item">
-            <img src="imagenes/obra5.jpg" alt="Exploraciones del azul No.2 Prusia">
-            <div class="overlay">
-                <span>
-                    Exploraciones del azul<br>
-                    No.2 Prusia<br>
-                    Óleo<br>
-                    15 x 23.3 cm<br>
-                    2025
-                </span>
-            </div>
-        </div>
-
-        <div class="item">
-            <img src="imagenes/obra6.jpg" alt="Rencuentros: Ecos y tus ojos / Oscuros No.4">
-            <div class="overlay">
-                <span>
-                    Rencuentros:<br>
-                    Ecos y tus ojos / Oscuros No.4<br>
-                    Óleo<br>
-                    16.5 x 22.8 cm<br>
-                    2025
-                </span>
-            </div>
-        </div>
-
-        <div class="item">
-            <img src="imagenes/obra7.jpg" alt="Rencuentros: Ecos y tus ojos / Oscuros no.2">
-            <div class="overlay">
-                <span>
-                    Rencuentros:<br>
-                    Ecos y tus ojos / Oscuros no.2<br>
-                    Óleo<br>
-                    14.8 x 21 cm<br>
-                    2025
-                </span>
-            </div>
-        </div>
-
-        <div class="item">
-            <img src="imagenes/obra8.jpg" alt="Llanura no.1">
-            <div class="overlay">
-                <span>
-                    Llanura no.1<br>
-                    Óleo<br>
-                    17 x 25 cm<br>
-                    2025
-                </span>
-            </div>
-        </div>
-
+    <section class="gallery" id="contenedor-galeria">
     </section>
 </main>
 
@@ -134,26 +32,98 @@
 </footer>
 
 <script>
-    /* 1. SEGURIDAD (Bloqueo de click derecho y arrastre) */
-    document.addEventListener('contextmenu', e => e.preventDefault());
-    document.addEventListener('dragstart', e => { if (e.target.nodeName === 'IMG') e.preventDefault(); });
 
-    /* 2. LÓGICA PARA CELULARES (Toque para ver ficha) */
-    const items = document.querySelectorAll('.item');
+    /* =================
+       🟢OBRAS (2025)🟢
+       =================*/
 
-    items.forEach(item => {
-        item.addEventListener('click', function(e) {
-            // Si la obra que tocaste ya estaba abierta, la cerramos (toggle)
+    const obras2025 = [
+        {
+            archivo: "obra25-1.jpg",
+            tituloBase: "Exploraciones del azul No.1 Cobalto",
+            fichaTecnica: "Exploraciones del azul<br>No.1 Cobalto<br>Óleo<br>15.5 x 22.7 cm<br>2025",
+            tamano: ""
+        },
+        {
+            archivo: "obra25-2.jpg",
+            tituloBase: "Atardecer No.8",
+            fichaTecnica: "Atardecer No.8<br>Óleo<br>16 x 22.4 cm<br>2025",
+            tamano: ""
+        },
+        {
+            archivo: "obra25-3.jpg",
+            tituloBase: "Ecos, no.1",
+            fichaTecnica: "Ecos, no.1<br>Óleo<br>14 x 22.3 cm<br>2025",
+            tamano: ""
+        },
+        {
+            archivo: "obra25-4.jpg",
+            tituloBase: "Exploraciones del azul No.3 Ultramar",
+            fichaTecnica: "Exploraciones del azul<br>No.3 Ultramar<br>Óleo<br>16 x 22.2 cm<br>2025",
+            tamano: ""
+        },
+        {
+            archivo: "obra25-5.jpg",
+            tituloBase: "Exploraciones del azul No.2 Prusia",
+            fichaTecnica: "Exploraciones del azul<br>No.2 Prusia<br>Óleo<br>15 x 23.3 cm<br>2025",
+            tamano: ""
+        },
+        {
+            archivo: "obra25-6.jpg",
+            tituloBase: "Rencuentros: Ecos y tus ojos / Oscuros No.4",
+            fichaTecnica: "Rencuentros:<br>Ecos y tus ojos / Oscuros No.4<br>Óleo<br>16.5 x 22.8 cm<br>2025",
+            tamano: ""
+        },
+        {
+            archivo: "obra25-7.jpg",
+            tituloBase: "Rencuentros: Ecos y tus ojos / Oscuros no.2",
+            fichaTecnica: "Rencuentros:<br>Ecos y tus ojos / Oscuros no.2<br>Óleo<br>14.8 x 21 cm<br>2025",
+            tamano: ""
+        },
+        {
+            archivo: "obra25-8.jpg",
+            tituloBase: "Llanura no.1",
+            fichaTecnica: "Llanura no.1<br>Óleo<br>17 x 25 cm<br>2025",
+            tamano: ""
+        }
+    ];
+
+    /*🛑 EL MOTOR 🛑*/
+
+    const contenedor = document.getElementById('contenedor-galeria');
+
+    obras2025.forEach(obra => {
+        const cajaObra = document.createElement('div');
+
+        if (obra.tamano !== "") {
+            cajaObra.className = `item ${obra.tamano}`;
+        } else {
+            cajaObra.className = "item";
+        }
+
+        cajaObra.innerHTML = `
+            <img src="imagenes/${obra.archivo}" alt="${obra.tituloBase}">
+            <div class="overlay">
+                <span>${obra.fichaTecnica}</span>
+            </div>
+        `;
+
+        cajaObra.addEventListener('click', function() {
             if (this.classList.contains('active')) {
                 this.classList.remove('active');
             } else {
-                // Si estaba cerrada: Primero cerramos TODAS las demás
-                items.forEach(i => i.classList.remove('active'));
-                // Y abrimos (activamos) solo la que tocaste
+                document.querySelectorAll('.item').forEach(i => i.classList.remove('active'));
                 this.classList.add('active');
             }
         });
+
+        contenedor.appendChild(cajaObra);
     });
+
+    /*🛑 SEGURIDAD 🛑*/
+
+    document.addEventListener('contextmenu', e => e.preventDefault());
+    document.addEventListener('dragstart', e => { if (e.target.nodeName === 'IMG') e.preventDefault(); });
 </script>
 
 </body>

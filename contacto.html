@@ -21,27 +21,7 @@
 </header>
 
 <main class="contact-main">
-    <div class="contact-wrapper">
-
-        <div class="email-section">
-            <p class="intro-text">Para consultas, adquisiciones o colaboraciones:</p>
-
-            <p class="contact-email-text">
-                marisolmrz@icloud.com
-            </p>
-
-            <p class="contact-email-text">
-                tucorreo@hotmail.com
-            </p>
-        </div>
-
-        <div class="social-section">
-            <a href="https://www.instagram.com/agrimpoem/" target="_blank" class="instagram-link">
-                <img src="imagenes/instagram.png" alt="Instagram Retano" class="social-icon">
-            </a>
-            <p class="social-label">Instagram</p>
-        </div>
-
+    <div class="contact-wrapper" id="contenedor-contacto">
     </div>
 </main>
 
@@ -52,6 +32,48 @@
 </footer>
 
 <script>
+
+    /*🟢 CONTACTO 🟢*/
+
+    const datosContacto = {
+        mensajeIntro: "Para consultas, adquisiciones o colaboraciones:",
+        correos: [
+            "marisolmrz@icloud.com",
+        ],
+        redSocial: {
+            nombre: "Instagram",
+            enlace: "https://www.instagram.com/agrimpoem/",
+            icono: "imagenes/instagram.png"
+        }
+    };
+
+    /*🛑 EL MOTOR 🛑*/
+
+    const contenedor = document.getElementById('contenedor-contacto');
+
+    // Construimos la lista de correos
+    let htmlCorreos = "";
+    datosContacto.correos.forEach(correo => {
+        htmlCorreos += `<p class="contact-email-text">${correo}</p>`;
+    });
+
+    // Inyectamos todo al HTML
+    contenedor.innerHTML = `
+        <div class="email-section">
+            <p class="intro-text">${datosContacto.mensajeIntro}</p>
+            ${htmlCorreos}
+        </div>
+
+        <div class="social-section">
+            <a href="${datosContacto.redSocial.enlace}" target="_blank" class="instagram-link">
+                <img src="${datosContacto.redSocial.icono}" alt="${datosContacto.redSocial.nombre} Retano" class="social-icon">
+            </a>
+            <p class="social-label">${datosContacto.redSocial.nombre}</p>
+        </div>
+    `;
+
+    /*🛑 SEGURIDAD 🛑*/
+
     document.addEventListener('contextmenu', e => e.preventDefault());
     document.addEventListener('dragstart', e => { if (e.target.nodeName === 'IMG') e.preventDefault(); });
 </script>

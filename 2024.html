@@ -21,93 +21,7 @@
 </header>
 
 <main>
-    <section class="gallery">
-
-        <div class="item item-large">
-            <img src="imagenes/obra101.jpg" alt="Margarita o Antónimo de amarillo">
-            <div class="overlay">
-                <span>
-                    No.5<br>
-                    Margarita o Antónimo de amarillo<br>
-                    Óleo<br>
-                    12.5 x 21.2 cm<br>
-                    2024
-                </span>
-            </div>
-        </div>
-
-        <div class="item item-small">
-            <img src="imagenes/obra102.jpg" alt="Sin título">
-            <div class="overlay">
-                <span>
-                    Sin título<br>
-                    Óleo sobre cartón con tela<br>
-                    12 x 15 cm<br>
-                    2024
-                </span>
-            </div>
-        </div>
-
-        <div class="item">
-            <img src="imagenes/obra103.jpg" alt="Exploración de Cadnio">
-            <div class="overlay">
-                <span>
-                    Exploración de Cadnio<br>
-                    Óleo sobre cartón con tela<br>
-                    12 x 15 cm<br>
-                    2024
-                </span>
-            </div>
-        </div>
-
-        <div class="item">
-            <img src="imagenes/obra104.jpg" alt="Exploración de ocre">
-            <div class="overlay">
-                <span>
-                    Exploración de ocre<br>
-                    Óleo sobre cartón con tela<br>
-                    12 x 15 cm<br>
-                    2024
-                </span>
-            </div>
-        </div>
-
-        <div class="item">
-            <img src="imagenes/obra105.jpg" alt="Sin título">
-            <div class="overlay">
-                <span>
-                    Sin título<br>
-                    Óleo sobre cartón con tela<br>
-                    12 x 15 cm<br>
-                    2024
-                </span>
-            </div>
-        </div>
-
-        <div class="item">
-            <img src="imagenes/obra106.jpg" alt="Sin título">
-            <div class="overlay">
-                <span>
-                    Sin título<br>
-                    Óleo sobre cartón con tela<br>
-                    12 x 15 cm<br>
-                    2024
-                </span>
-            </div>
-        </div>
-
-        <div class="item">
-            <img src="imagenes/obra107.jpg" alt="Exploración botana n.1">
-            <div class="overlay">
-                <span>
-                    Exploración botana n.1<br>
-                    Óleo<br>
-                    22 x 27 cm<br>
-                    2024
-                </span>
-            </div>
-        </div>
-
+    <section class="gallery" id="contenedor-galeria">
     </section>
 </main>
 
@@ -118,20 +32,99 @@
 </footer>
 
 <script>
-    document.addEventListener('contextmenu', e => e.preventDefault());
-    document.addEventListener('dragstart', e => { if (e.target.nodeName === 'IMG') e.preventDefault(); });
 
-    const items = document.querySelectorAll('.item');
-    items.forEach(item => {
-        item.addEventListener('click', function(e) {
+    /* =================
+       🟢OBRAS (2024)🟢
+       =================*/
+
+    const obras2024 = [
+        {
+            archivo: "obra24-1.jpg",
+            tituloBase: "Margarita o Antónimo de amarillo",
+            fichaTecnica: "No.5<br>Margarita o Antónimo de amarillo<br>Óleo<br>12.5 x 21.2 cm<br>2024",
+            tamano: "item-large" // Hace que la imagen ocupe 2 columnas
+        },
+        {
+            archivo: "obra24-2.jpg",
+            tituloBase: "Sin título",
+            fichaTecnica: "Sin título<br>Óleo sobre cartón con tela<br>12 x 15 cm<br>2024",
+            tamano: "item-small" // Reduce el tamaño visualmente
+        },
+        {
+            archivo: "obra24-3.jpg",
+            tituloBase: "Exploración de Cadnio",
+            fichaTecnica: "Exploración de Cadnio<br>Óleo sobre cartón con tela<br>12 x 15 cm<br>2024",
+            tamano: "" // Dejar vacío para tamaño normal
+        },
+        {
+            archivo: "obra24-4.jpg",
+            tituloBase: "Exploración de ocre",
+            fichaTecnica: "Exploración de ocre<br>Óleo sobre cartón con tela<br>12 x 15 cm<br>2024",
+            tamano: ""
+        },
+        {
+            archivo: "obra24-5.jpg",
+            tituloBase: "Sin título",
+            fichaTecnica: "Sin título<br>Óleo sobre cartón con tela<br>12 x 15 cm<br>2024",
+            tamano: ""
+        },
+        {
+            archivo: "obra24-6.jpg",
+            tituloBase: "Sin título",
+            fichaTecnica: "Sin título<br>Óleo sobre cartón con tela<br>12 x 15 cm<br>2024",
+            tamano: ""
+        },
+        {
+            archivo: "obra24-7.jpg",
+            tituloBase: "Exploración botana n.1",
+            fichaTecnica: "Exploración botana n.1<br>Óleo<br>22 x 27 cm<br>2024",
+            tamano: ""
+        }
+    ];
+
+    /*🛑 MOTOR 🛑*/
+
+    const contenedor = document.getElementById('contenedor-galeria');
+
+    obras2024.forEach(obra => {
+        // 1. Crear la caja de la obra
+        const cajaObra = document.createElement('div');
+
+        // 2. Asignar clases de CSS (item + el tamaño específico si lo tiene)
+        if (obra.tamano !== "") {
+            cajaObra.className = `item ${obra.tamano}`;
+        } else {
+            cajaObra.className = "item";
+        }
+
+        // 3. Insertar la imagen y los textos
+        cajaObra.innerHTML = `
+            <img src="imagenes/${obra.archivo}" alt="${obra.tituloBase}">
+            <div class="overlay">
+                <span>${obra.fichaTecnica}</span>
+            </div>
+        `;
+
+        // 4. Lógica para celulares (toque)
+        cajaObra.addEventListener('click', function() {
             if (this.classList.contains('active')) {
                 this.classList.remove('active');
             } else {
-                items.forEach(i => i.classList.remove('active'));
+                // Cerramos las demás antes de abrir esta
+                document.querySelectorAll('.item').forEach(i => i.classList.remove('active'));
                 this.classList.add('active');
             }
         });
+
+        // 5. Agregar la obra terminada al HTML
+        contenedor.appendChild(cajaObra);
     });
+
+    /*🛑 SEGURIDAD 🛑*/
+
+    document.addEventListener('contextmenu', e => e.preventDefault());
+    document.addEventListener('dragstart', e => { if (e.target.nodeName === 'IMG') e.preventDefault(); });
+
 </script>
 
 </body>

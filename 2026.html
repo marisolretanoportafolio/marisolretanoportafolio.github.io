@@ -21,44 +21,7 @@
 </header>
 
 <main>
-    <section class="gallery">
-
-        <div class="item item-small">
-            <img src="imagenes/obra202.jpg" alt="Recuerdos de una tarde en silencio n.2">
-            <div class="overlay">
-                <span>
-                    Recuerdos de una tarde en silencio n.2<br>
-                    Óleo sobre imprimación en minagris<br>
-                    11 x 18.5 cm<br>
-                    2026
-                </span>
-            </div>
-        </div>
-
-        <div class="item item-small">
-            <img src="imagenes/obra201.jpg" alt="Recuerdos de una tarde en silencio n.1">
-            <div class="overlay">
-                <span>
-                    Recuerdos de una tarde en silencio n.1<br>
-                    Óleo sobre imprimación en minagris<br>
-                    11 x 18.5 cm<br>
-                    2026
-                </span>
-            </div>
-        </div>
-
-        <div class="item item-small">
-            <img src="imagenes/obra203.jpg" alt="09|01|26">
-            <div class="overlay">
-                <span>
-                    09|01|26<br>
-                    Óleo sobre cartón con tela<br>
-                    12 x 15 cm<br>
-                    2026
-                </span>
-            </div>
-        </div>
-
+    <section class="gallery" id="contenedor-galeria">
     </section>
 </main>
 
@@ -69,20 +32,68 @@
 </footer>
 
 <script>
-    document.addEventListener('contextmenu', e => e.preventDefault());
-    document.addEventListener('dragstart', e => { if (e.target.nodeName === 'IMG') e.preventDefault(); });
 
-    const items = document.querySelectorAll('.item');
-    items.forEach(item => {
-        item.addEventListener('click', function(e) {
+    /* =================
+       🟢OBRAS (2026)🟢
+       =================*/
+
+    const obras2026 = [
+        {
+            archivo: "obra26-2.jpg",
+            tituloBase: "Recuerdos de una tarde en silencio n.2",
+            fichaTecnica: "Recuerdos de una tarde en silencio n.2<br>Óleo sobre imprimación en minagris<br>11 x 18.5 cm<br>2026",
+            tamano: "item-small" // Reduce el tamaño visualmente
+        },
+        {
+            archivo: "obra26-1.jpg",
+            tituloBase: "Recuerdos de una tarde en silencio n.1",
+            fichaTecnica: "Recuerdos de una tarde en silencio n.1<br>Óleo sobre imprimación en minagris<br>11 x 18.5 cm<br>2026",
+            tamano: "item-small"
+        },
+        {
+            archivo: "obra26-3.jpg",
+            tituloBase: "09|01|26",
+            fichaTecnica: "09|01|26<br>Óleo sobre cartón con tela<br>12 x 15 cm<br>2026",
+            tamano: "item-small"
+        }
+    ];
+
+    /*🛑 EL MOTOR 🛑*/
+
+    const contenedor = document.getElementById('contenedor-galeria');
+
+    obras2026.forEach(obra => {
+        const cajaObra = document.createElement('div');
+
+        if (obra.tamano !== "") {
+            cajaObra.className = `item ${obra.tamano}`;
+        } else {
+            cajaObra.className = "item";
+        }
+
+        cajaObra.innerHTML = `
+            <img src="imagenes/${obra.archivo}" alt="${obra.tituloBase}">
+            <div class="overlay">
+                <span>${obra.fichaTecnica}</span>
+            </div>
+        `;
+
+        cajaObra.addEventListener('click', function() {
             if (this.classList.contains('active')) {
                 this.classList.remove('active');
             } else {
-                items.forEach(i => i.classList.remove('active'));
+                document.querySelectorAll('.item').forEach(i => i.classList.remove('active'));
                 this.classList.add('active');
             }
         });
+
+        contenedor.appendChild(cajaObra);
     });
+
+    /*🛑 SEGURIDAD 🛑*/
+
+    document.addEventListener('contextmenu', e => e.preventDefault());
+    document.addEventListener('dragstart', e => { if (e.target.nodeName === 'IMG') e.preventDefault(); });
 </script>
 
 </body>
